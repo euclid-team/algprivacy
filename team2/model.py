@@ -1,14 +1,5 @@
 from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier
 
-class MyModel:
-    def __init__(self, seed):
-        self.model = SVC(probability=True)
-
-    def train(self, X, y):
-        self.model.fit(X, y)
-
-    def test(self, X, y):
-        return self.model.score(X, y)
-    
-    def predict_proba(self, X):
-        return self.model.predict_proba(X)
+def get_model(seed):
+    return RandomForestClassifier(max_depth=2, random_state=seed)
